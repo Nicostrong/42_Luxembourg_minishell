@@ -1,0 +1,16 @@
+{
+	"files.exclude": {
+		"**/*.o": true,
+		"**/**/*.o": true,
+		"**/*.plist": true,
+		"**/**/*.plist": true,
+	},
+	"editor.rulers": [
+		80,
+	],
+	"files.associations": {
+		"pipex": "cpp",
+		"minishell.h": "c"
+	},
+	"files.eol": "\n",
+}

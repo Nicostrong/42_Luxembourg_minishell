@@ -1,0 +1,12 @@
+echo '< Makefile cat -e | grep CC | wc -l > out;exit' | tr ';' '\n' | valgrind --tool=memcheck --leak-check=full --show-leak-kinds=definite,indirect,possible --track-fds=yes ./minishell 2> error
+
+echo '< Makefile cat -e;exit' | tr ';' '\n' | valgrind --tool=memcheck --leak-check=full --show-leak-kinds=definite,indirect,possible --track-fds=yes ./minishell 2> error
+
+echo 'cat Makefile -e ;exit' | tr ';' '\n' | valgrind --tool=memcheck --leak-check=full --show-leak-kinds=definite,indirect,possible --track-fds=yes ./minishell 2> error
+
+echo 'cat Makefile -e | wc -l > out;exit' | tr ';' '\n' | valgrind --tool=memcheck --leak-check=full --show-leak-kinds=definite,indirect,possible --track-fds=yes ./minishell 2> error
+
+echo '(cat notexist -e || cat Makefile -e) | wc -l > out;exit' | tr ';' '\n' | valgrind --tool=memcheck --leak-check=full --show-leak-kinds=definite,indirect,possible --track-fds=yes ./minishell 2> error
+
+echo '(< Makefile cat -e && < error cat -e) | wc -l > out;exit' | tr ';' '\n' | valgrind --tool=memcheck --leak-check=full --show-leak-kinds=definite,indirect,possible --track-fds=yes ./minishell 2> error
+
